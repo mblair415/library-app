@@ -1,0 +1,9 @@
+<% @libraries.each do |library| %>
+  <div>
+    <h3><%= library.name %></h3>
+    <h4>Floor Count: <%= library.floor_count %></h4>
+    <h4>Floor Area: <%= library.floor_area %></h4>
+  </div>
+  <hr>
+  <br>
+<% end %>
