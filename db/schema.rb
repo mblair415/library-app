@@ -24,11 +24,12 @@ ActiveRecord::Schema.define(version: 20170129013321) do
   end
 
   create_table "library_users", force: :cascade do |t|
-    t.string   "user_belongs_to"
     t.integer  "library_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["library_id"], name: "index_library_users_on_library_id", using: :btree
+    t.index ["user_id"], name: "index_library_users_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -41,4 +42,5 @@ ActiveRecord::Schema.define(version: 20170129013321) do
   end
 
   add_foreign_key "library_users", "libraries"
+  add_foreign_key "library_users", "users"
 end
